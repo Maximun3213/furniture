@@ -14,11 +14,7 @@
         $username = $_SESSION['U_fullname'];
 
         $rs = $this->userModel->selectCartUser($username);
-        // $user = mysqli_fetch_array($rs);
-        // echo $user[0];
-        // dung de tao lai session cart hien thi tren icon cart(0);
         $cnt = 0;
-        // echo $rs[0];
 
         $rs = $this->cartModel->selectCart($rs[0]);
 
@@ -93,8 +89,32 @@
               $cd_quantity = $_SESSION['cart'][$count]['pd_quantity'];
               $pd_id2 = $_SESSION['cart'][$count]['pd_id'];
               $result = $this->cartModel->insertProduct($user[0], $pd_id2, $cd_quantity);
-              // $q2 = "insert into cart_item values ('". $user[0]."','$pd_id2','$cd_quantity')";
-              // mysqli_query($connect,$q2) or die(mysqli_error($connect));
+            }
+          }
+        } else {
+          if(isset($_POST['quantity'])){
+            if (isset($_POST['pd_id']) && $_POST['pd_id']!=""){
+              $id = $_POST['pd_id'];
+              $result = $this->cartModel->selectProduct($id);
+              $row = mysqli_fetch_array($result);
+              $name = $row['pd_name'];
+              $id = $row['pd_id'];
+              $price = $row['pd_price'];
+              $image = $row['pd_img'];
+
+              $_SESSION['cart'][0]=array(
+                  'pd_name'=>$name,
+                  'pd_id'=>$id,
+                  'pd_price'=>$price,
+                  'pd_quantity'=>$_POST['quantity'],
+                  'pd_img'=>$image);
+              echo"<script>
+                      alert('Product Added');
+                      window.location.href= history.back();
+                  </script>";
+              $cd_quantity = $_SESSION['cart'][0]['pd_quantity'];
+              $pd_id = $_SESSION['cart'][0]['pd_id'];
+              $result = $this->cartModel->insertProduct($user[0], $pd_id, $cd_quantity);
             }
           }
         }
