@@ -72,11 +72,10 @@
                                     </form>
                                     <td class="cart__price" style="width: 260px;"><?php echo number_format(($row2["pd_price"] * $row['cd_quantity']),0) ?> VND</td>
                                     <td class="cart__close">
-                                        <form method="POST" action="remove-item.php">
+                                        <form method="POST" action="./deleteProductCart">
                                             <input type="submit" name="remove" value="Remove" class="btn btn-danger">
                                             <input type='hidden' name='pd_id' value="<?php echo $row["cd_pd_id"] ?>" />
                                         </form>
-                                        <!-- <i class="fa fa-close"></i> -->
                                     </td>
                                 </tr>
                             <?php

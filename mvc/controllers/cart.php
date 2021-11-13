@@ -178,5 +178,25 @@
         }
       }
     }
+
+    public function deleteProductCart(){
+      if(isset($_SESSION['U_fullname'])){
+        $username = $_SESSION['U_fullname'];
+        $user = $this->userModel->selectCartUser($username);
+        if(isset($_POST['remove'])){
+          if(isset($_POST['pd_id']) && $_POST['pd_id']!=""){
+            foreach($_SESSION['cart'] as $key => $value){
+              if($value['pd_id']==$_POST['pd_id']){
+                $id = $_SESSION['cart'][$key]['pd_id'];
+                $rs = $this->cartModel->deleteCart($user[0], $id);
+                unset($_SESSION['cart'][$key]);
+                $_SESSION['cart']=array_values($_SESSION['cart']);
+                header("location: http://localhost/FS-MVC/cart/showCart");
+              }
+            }
+          }
+        }
+      }
+    }
   }
 ?>
