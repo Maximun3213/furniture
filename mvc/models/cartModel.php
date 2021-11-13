@@ -30,5 +30,11 @@
       $qr = "select * from cart_item where cd_uid='".$user."'";
       return mysqli_query($this->con, $qr);
     }
+
+    //Update cart
+    public function updateCart($quantity, $user, $id){
+      $qr = "UPDATE cart_item SET cd_quantity = '$quantity' WHERE cd_pd_id='$id' and cd_uid='".$user."'";
+      return mysqli_query($this->con, $qr);
+    }
   }
 ?>

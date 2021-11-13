@@ -57,7 +57,7 @@
                                             <h5><?php echo number_format($row2['pd_price'],0)?> VND</h5>
                                         </div>
                                     </td>
-                                    <form method="POST" action="update-cart.php">
+                                    <form method="POST" action="./updateProductCart">
                                         <td class="quantity__item">
                                             <div class="quantity">
                                                 <div class="pro-qty-2">

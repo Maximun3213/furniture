@@ -151,5 +151,32 @@
         header ("Location: http://localhost/FS-MVC/login");
       }
     }
+
+    public function updateProductCart(){
+      if(isset($_POST['pd_id']) && $_POST['pd_id']!=""){
+        if(isset($_SESSION['U_fullname'])){
+          echo "hello";
+          // luu vao database;
+          $username = $_SESSION['U_fullname'];
+
+          $user = $this->userModel->selectCartUser($username);
+          if(isset($_SESSION['cart'])){
+            foreach($_SESSION['cart'] as $key => $value){
+              if($value['pd_id']==$_POST['pd_id']){
+                $_SESSION['cart'][$key]['pd_quantity']=$_POST['c_quantity'];
+
+                $id = $_SESSION['cart'][$key]['pd_id'];
+                $quantity = $_SESSION['cart'][$key]['pd_quantity'];
+
+                //Update lại database cart
+                $rs = $this->cartModel->updateCart($quantity, $user[0], $id);
+
+                header("location: http://localhost/FS-MVC/cart/showCart");
+              }
+            }
+          }
+        }
+      }
+    }
   }
 ?>
