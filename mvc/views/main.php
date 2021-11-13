@@ -115,7 +115,7 @@
             <a href="#" class="search-switch"
               ><img src="<?=IMG_PATH?>icon/search.png" alt=""
             /></a>
-            <a href="#"
+            <a href="http://localhost/FS-MVC/cart/showCart"
               ><img src="<?=IMG_PATH?>icon/cart.png" alt="" />
               <span>0</span></a
             >

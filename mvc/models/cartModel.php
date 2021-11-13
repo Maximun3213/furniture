@@ -15,13 +15,19 @@
 
     //Insert product into cart db
     public function insertProduct($user, $pd_id2, $cd_quantity){
-      $qr = "insert into cart_item values ('". $user[0]."','$pd_id2','$cd_quantity')";
+      $qr = "insert into cart_item values ('$user','$pd_id2','$cd_quantity')";
       return mysqli_query($this->con, $qr);
     }
 
     //Select cart of user
     public function selectCart($rs){
       $qr = "SELECT * from cart_item c join product p on p.pd_id=c.cd_pd_id where cd_uid='".$rs."'";
+      return mysqli_query($this->con, $qr);
+    }
+
+    //Select cart of uid
+    public function selectCartItem($user){
+      $qr = "select * from cart_item where cd_uid='".$user."'";
       return mysqli_query($this->con, $qr);
     }
   }

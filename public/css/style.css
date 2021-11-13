@@ -1908,6 +1908,7 @@ ol {
 .footer {
 	background: #111111;
 	padding-top: 70px;
+	margin-top: 40px;
 }
 
 .footer__about {
@@ -2298,7 +2299,7 @@ ol {
 }
 
 .shopping__cart__table table tbody tr td.product__cart__item {
-	width: 60%;
+	width: 20%;
 }
 
 .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {

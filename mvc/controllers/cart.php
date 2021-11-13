@@ -37,15 +37,10 @@
         $username = $_SESSION['U_fullname'];
         $user = $this->userModel->selectCartUser($username);
 
-        // $user = mysqli_fetch_array($kq);
         $pd_id = $_POST['pd_id'];
         $soluong = $_POST['quantity'];
-        // echo $pd_id;
-        // echo $soluong;
-        // echo $_SESSION['cart'];
         if(isset($_SESSION['cart'])){
           $myCart=array_column($_SESSION['cart'],'pd_id');
-          echo $pd_id;
           if(in_array($_POST['pd_id'],$myCart)){
             // neu ton tai pd_id trong cart
             foreach($_SESSION['cart'] as $key => $value){
@@ -73,7 +68,7 @@
               $id = $row['pd_id'];
               $price = $row['pd_price'];
               $image = $row['pd_img'];
-              echo $pd_id;
+
               $count=count($_SESSION['cart']);
 
               $_SESSION['cart'][$count]=array(
@@ -89,6 +84,9 @@
               $cd_quantity = $_SESSION['cart'][$count]['pd_quantity'];
               $pd_id2 = $_SESSION['cart'][$count]['pd_id'];
               $result = $this->cartModel->insertProduct($user[0], $pd_id2, $cd_quantity);
+              print_r($user[0]) ;
+              echo $pd_id2;
+              echo $cd_quantity;
             }
           }
         } else {
@@ -123,6 +121,40 @@
         header ("Location: http://localhost/FS-MVC/login");
       }
     }
+
+    public function showCart(){
+      if(isset($_SESSION['U_fullname'])){
+        $username = $_SESSION['U_fullname'];
+
+        //Select Id cart user
+        $qr1 = $this->userModel->selectCartUser($username);
+        // print_r($qr1);
+        //Select product in cart with id user
+        $rs = $this->cartModel->selectCartItem($qr1[0]);
+
+        //In ra số lượng product để biết có empty hay có hàng
+        $amountProduct = mysqli_fetch_assoc($rs);
+
+        $p = $this->cartModel;
+
+        //Show ra giỏ hàng
+        $this->views("main", [
+        "title" => "Your cart",
+        "page" => "cart",
+        "amountProduct" => $amountProduct,
+        "show" => $p -> selectCartItem($qr1[0]),
+        "showProduct" => $rs ,
+        ]);
+      }
+      else{
+        echo "<script>alert(\"You need to login\")</script>";
+        header ("Location: http://localhost/FS-MVC/login");
+      }
+    }
+
+
+
   }
+
 
 ?>
