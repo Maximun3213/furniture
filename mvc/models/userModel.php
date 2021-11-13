@@ -41,5 +41,29 @@
       $user = mysqli_fetch_array($kq);
       return $user;
     }
+
+    public function selectCheckoutUser($user){
+      $qr = "SELECT U_name, U_tel, U_email from info_user where u_id = '$user'";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
+
+    public function selectDistrict($id){
+      $qr = "SELECT * FROM district where province_id='$id'";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
+
+    public function selectProvice(){
+      $qr = "SELECT * FROM province";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
+
+    public function selectAddress($user){
+      $qr = "select * from address where ad_cid='".$user."' and ad_dateupdate=(select max(ad_dateupdate) from address where ad_cid='".$user."')";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
   }
 ?>

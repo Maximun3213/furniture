@@ -95,7 +95,7 @@
               <?php
                 if(isset($_SESSION['U_fullname'])){
                   echo '
-                  <li><a href="#">Log out</a></li>
+                  <li><a href="http://localhost/FS-MVC/logout">Log out</a></li>
                   ';
                 }else{
                   echo '
@@ -197,7 +197,6 @@
   <!-- Js Plugins -->
   <script src="<?=JS_PATH?>jquery-3.3.1.min.js"></script>
   <script src="<?=JS_PATH?>bootstrap.min.js"></script>
-  <script src="<?=JS_PATH?>jquery.nice-select.min.js"></script>
   <script src="<?=JS_PATH?>jquery.nicescroll.min.js"></script>
   <script src="<?=JS_PATH?>jquery.magnific-popup.min.js"></script>
   <script src="<?=JS_PATH?>jquery.countdown.min.js"></script>

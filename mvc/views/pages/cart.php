@@ -93,7 +93,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn update__btn">
-                                <a href="checkout.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>CHECK ORDER</a>
+                                <a href="../checkout/showCheckout"><i class="fa fa-shopping-cart" aria-hidden="true"></i>CHECK ORDER</a>
                             </div>
                         </div>
                     </div>
