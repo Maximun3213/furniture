@@ -128,7 +128,7 @@
 
         //Select Id cart user
         $qr1 = $this->userModel->selectCartUser($username);
-        // print_r($qr1);
+
         //Select product in cart with id user
         $rs = $this->cartModel->selectCartItem($qr1[0]);
 

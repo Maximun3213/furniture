@@ -33,7 +33,6 @@
                                 while ($row = mysqli_fetch_assoc($data['show'])){
                                     //tới đây
                                     $pd_id = $row['cd_pd_id'];
-                                    // $exe_q2 = $data['showItem'];
                                     $exe_q2 = $this->model('cartModel')->selectProduct($pd_id);
 
                                     $row2 = mysqli_fetch_array($exe_q2);
