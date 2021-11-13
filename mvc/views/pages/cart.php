@@ -31,7 +31,7 @@
                             <tbody>
                             <?php
                                 while ($row = mysqli_fetch_assoc($data['show'])){
-                                    //tới đây
+
                                     $pd_id = $row['cd_pd_id'];
                                     $exe_q2 = $this->model('cartModel')->selectProduct($pd_id);
 

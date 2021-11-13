@@ -151,10 +151,5 @@
         header ("Location: http://localhost/FS-MVC/login");
       }
     }
-
-
-
   }
-
-
 ?>
