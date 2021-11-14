@@ -28,7 +28,7 @@
                     // $r = mysqli_query($connect, $q) or die(mysqli_error($connect));
                     while ($row = mysqli_fetch_assoc($r)){
                 ?>
-                <form action="update-address.php" method="POST">
+                <form action="../updateAddress/update" method="POST">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h6 class="checkout__title">INVOICE INFORMATION</h6>
@@ -65,8 +65,9 @@
                                         <script>
                                         $(document).ready(function(){
                                             jQuery('#province').change(function(event){
+                                                console.log('hello');
                                                 var id = jQuery(this).val();
-                                                $.post('district.php', {'id': id}, function(data){
+                                                $.post('http://localhost/FS-MVC/district/showDistrict', {'id': id}, function(data){
                                                     $("#district").html(data);
                                                 });
                                             });
@@ -129,11 +130,14 @@
                                 while ($rs3 = mysqli_fetch_assoc($ex_q3)){
                                     $dis_id =  $rs3['ad_district_id'];
                                     // echo $dis_id;
-                                    $q4 = "select district_name from district where district_id='$dis_id'";
-                                    $ex_q4 = mysqli_query($connect, $q4) or die  (mysqli_error($connect));
+                                    $ex_q4 = $this->model('userModel')->selectDistrictName($dis_id);
+                                    // $q4 = "select district_name from district where district_id='$dis_id'";
+                                    // $ex_q4 = mysqli_query($connect, $q4) or die  (mysqli_error($connect));
                                     $rs4 = mysqli_fetch_array($ex_q4);
-                                    $q5 = "select province_name from province p join district d on d.province_id=p.province_id where district_id='$dis_id'";
-                                    $ex_q5 = mysqli_query($connect, $q5) or die (mysqli_error($connect));
+
+                                    $ex_q5 = $this->model('userModel')->selectProvinceName($dis_id);
+                                    // $q5 = "select province_name from province p join district d on d.province_id=p.province_id where district_id='$dis_id'";
+                                    // $ex_q5 = mysqli_query($connect, $q5) or die (mysqli_error($connect));
                                     $rs5 = mysqli_fetch_array($ex_q5);
                             ?>
                             <div class="col-lg-12">

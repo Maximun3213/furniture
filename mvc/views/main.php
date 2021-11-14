@@ -64,6 +64,7 @@
     href="<?=CSS_PATH?>myStyle.css"
     type="text/css"
   />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <title><?php echo $data["title"] ?></title>
 </head>
 <body>
@@ -199,7 +200,6 @@
   <script src="<?=JS_PATH?>bootstrap.min.js"></script>
   <script src="<?=JS_PATH?>jquery.nicescroll.min.js"></script>
   <script src="<?=JS_PATH?>jquery.magnific-popup.min.js"></script>
-  <script src="<?=JS_PATH?>jquery.countdown.min.js"></script>
   <script src="<?=JS_PATH?>jquery.slicknav.js"></script>
   <script src="<?=JS_PATH?>mixitup.min.js"></script>
   <script src="<?=JS_PATH?>owl.carousel.min.js"></script>
