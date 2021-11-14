@@ -30,7 +30,7 @@
                   <input type="password" name="U_psw" required/>
                 </div>
                 <div class="group">
-                  <p>If you don't have account? <a href="">Register</a></p>
+                  <p>If you don't have account? <a href="http://localhost/FS-MVC/register">Register</a></p>
                   <button type="submit" class="site-btn" name="btnLogin">Log in</button>
                 </div>
               </div>

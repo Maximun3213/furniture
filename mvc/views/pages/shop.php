@@ -79,7 +79,7 @@
                       </div>
                       <div class="product__item__text">
                         <h6><?php echo $row["pd_name"] ?></h6>
-                        <p>Amount:<input type="number" name='quantity'></p>
+                        <p>Amount:<input type="number" name='quantity' min='1'></p>
                         <input type="hidden" name="pd_id" value=<?php echo $row["pd_id"]?>>
                         <button type="submit" class="add-cart">+ Add To Cart</button>
                         <div class="rating">
