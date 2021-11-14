@@ -8,21 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Register</title>
 
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/myStyle.css" type="text/css" />
   </head>
 
   <body>
@@ -33,7 +18,7 @@
           <form action="./register/registerProcess" method="POST">
             <div class="row">
               <div class="col-lg-8 col-md-6">
-                <h3 class="checkout__title">Log In</h3>
+                <h3 class="checkout__title">Register</h3>
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="checkout__input">
@@ -74,16 +59,16 @@
       </div>
     </section>
 
-    <!-- Search Begin -->
-    <div class="search-model">
-      <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-          <input type="text" id="search-input" placeholder="Search here....." />
-        </form>
-      </div>
+  <!-- Search Begin -->
+  <div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">+</div>
+      <form class="search-model-form" action="./search" method="GET">
+        <input type="text" id="search-input" placeholder="Search here....." name="key"/>
+      </form>
     </div>
-    <!-- Search End -->
+  </div>
+  <!-- Search End -->
 
   </body>
 </html>

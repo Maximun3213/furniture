@@ -119,7 +119,6 @@
               ><img src="<?=IMG_PATH?>icon/cart.png" alt="" />
               <span>0</span></a
             >
-            <div class="price">$0.00</div>
           </div>
         </div>
       </div>

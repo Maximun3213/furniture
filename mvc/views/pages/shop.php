@@ -79,7 +79,7 @@
                       </div>
                       <div class="product__item__text">
                         <h6><?php echo $row["pd_name"] ?></h6>
-                        <p>Amount:<input type="number" name='quantity' min='1'></p>
+                        <p>Amount:<input type="number" name='quantity' min=1 value='0'></p>
                         <input type="hidden" name="pd_id" value=<?php echo $row["pd_id"]?>>
                         <button type="submit" class="add-cart">+ Add To Cart</button>
                         <div class="rating">
@@ -110,7 +110,7 @@
                     </div>
                     <div class="product__item__text">
                       <h6><?php echo $row["pd_name"] ?></h6>
-                      <p>Amount:<input type="number" name='quantity'><p>
+                      <p>Amount:<input type="number" name='quantity' min=1 value='0'><p>
                       <input type="hidden" name="pd_id" value=<?php echo $row["pd_id"]?>>
                       <button type="submit" class="add-cart">+ Add To Cart</button>
                       <div class="rating">
@@ -141,7 +141,7 @@
                     </div>
                     <div class="product__item__text">
                       <h6><?php echo $row["pd_name"] ?></h6>
-                      <p>Amount:<input type="number" name='quantity'></p>
+                      <p>Amount:<input type="number" name='quantity' min=1 value='0'></p>
                       <input type="hidden" name="pd_id" value=<?php echo $row["pd_id"]?>>
                       <button type="submit" class="add-cart">+ Add To Cart</button>
                       <div class="rating">
@@ -172,7 +172,7 @@
                     </div>
                     <div class="product__item__text">
                       <h6><?php echo $row["pd_name"] ?></h6>
-                      <p>Amount:<input type="number" name='quantity'></p>
+                      <p>Amount:<input type="number" name='quantity' min=1 value='0'></p>
                       <input type="hidden" name="pd_id" value=<?php echo $row["pd_id"]?>>
                       <button type="submit" class="add-cart">+ Add To Cart</button>
                       <div class="rating">
@@ -203,7 +203,7 @@
                     </div>
                     <div class="product__item__text">
                       <h6><?php echo $row["pd_name"] ?></h6>
-                      <p>Amount:<input type="number" name='quantity'></p>
+                      <p>Amount:<input type="number" name='quantity' min=1 value='0'></p>
                       <input type="hidden" name="pd_id" value=<?php echo $row["pd_id"]?>>
                       <button type="submit" class="add-cart">+ Add To Cart</button>
                       <div class="rating">
@@ -238,17 +238,15 @@
       </div>
     </section>
     <!-- Shop Section End -->
-
-    <!-- Search Begin -->
-    <div class="search-model">
-      <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-          <input type="text" id="search-input" placeholder="Search here....." />
-        </form>
-      </div>
+  <!-- Search Begin -->
+  <div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">+</div>
+      <form class="search-model-form" action="./search" method="GET">
+        <input type="text" id="search-input" placeholder="Search here....." name="key"/>
+      </form>
     </div>
-    <!-- Search End -->
-
+  </div>
+  <!-- Search End -->
   </body>
 </html>
