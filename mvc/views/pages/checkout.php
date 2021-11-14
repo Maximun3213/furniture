@@ -15,17 +15,10 @@
         <div class="container">
             <div class="checkout__form">
                 <?php
-
-                    // $query = "select u_id from info_user where u_aName = '$username'";
-                    // $rs = mysqli_query($connect, $query);
-                    // $user = mysqli_fetch_array($rs);
                     //Lấy id cart user
                     $user = $data['userCart'];
 
                     $r = $this->model("userModel")->selectCheckoutUser($user[0]);
-
-                    // $q = "select U_name, U_tel, U_email from info_user where u_id = '".$user[0]."'";
-                    // $r = mysqli_query($connect, $q) or die(mysqli_error($connect));
                     while ($row = mysqli_fetch_assoc($r)){
                 ?>
                 <form action="../updateAddress/update" method="POST">
@@ -104,8 +97,6 @@
                 <?php
                     }
                     $result = $this->model("userModel")->selectCheckoutUser($user[0]);
-                    // $q0 = "select U_name, U_tel, U_email from info_user where u_id = '".$user[0]."'";
-                    // $result = mysqli_query($connect, $q0) or die(mysqli_error($connect));
                     while ($row = mysqli_fetch_assoc($result)){
                 ?>
                 <div class="row">
@@ -123,21 +114,13 @@
                             </div>
                             <?php
                                 }
-                                // $q3 ="select * from address where ad_cid='".$user[0]."' and ad_dateupdate=(select max(ad_dateupdate) from address where ad_cid='".$user[0]."')";
                                 $ex_q3 = $this->model("userModel")->selectAddress($user[0]);
-                                // print_r($ex_q3);
-                                // $ex_q3 = mysqli_query($connect, $q3) or die(mysqli_error($connect));
                                 while ($rs3 = mysqli_fetch_assoc($ex_q3)){
                                     $dis_id =  $rs3['ad_district_id'];
-                                    // echo $dis_id;
                                     $ex_q4 = $this->model('userModel')->selectDistrictName($dis_id);
-                                    // $q4 = "select district_name from district where district_id='$dis_id'";
-                                    // $ex_q4 = mysqli_query($connect, $q4) or die  (mysqli_error($connect));
                                     $rs4 = mysqli_fetch_array($ex_q4);
 
                                     $ex_q5 = $this->model('userModel')->selectProvinceName($dis_id);
-                                    // $q5 = "select province_name from province p join district d on d.province_id=p.province_id where district_id='$dis_id'";
-                                    // $ex_q5 = mysqli_query($connect, $q5) or die (mysqli_error($connect));
                                     $rs5 = mysqli_fetch_array($ex_q5);
                             ?>
                             <div class="col-lg-12">
@@ -153,9 +136,7 @@
                     <div class="col-lg-12">
                         <div class="shopping__cart__table">
                         <?php
-                            // $q1 = "select * from cart_item where cd_uid='".$user[0]."'";
                             $exe_q1 = $this->model('cartModel')->selectCartItem($user[0]);
-                            // $exe_q1 = mysqli_query($connect, $q1);
                             if(mysqli_num_rows($exe_q1) > 0){
                             $subTotal = 0.00;
                             $total = 0.00;
@@ -175,8 +156,6 @@
                                     while ($row = mysqli_fetch_assoc($exe_q1)){
                                     $pd_id = $row['cd_pd_id'];
                                     $exe_q2 = $this->model('cartModel')->selectProduct($pd_id);
-                                    // $exe_q2 = "select * from  product where pd_id='$pd_id'";
-                                    // $exe_q2 = mysqli_query($connect, $q2);
                                     $row2 = mysqli_fetch_array($exe_q2);
 
                                     $discount = 1.0;
@@ -218,7 +197,7 @@
                         </div>
                         <p class="total">TOTAL: <?php echo number_format($subTotal,0);?>&nbsp;VND</p>
                         <div class="checkout__order order__btn">
-                            <a href="order-process.php">
+                            <a href="../order/orderProcess">
                                 <button type="submit" class="site-btn" onclick="final()">ORDER</button>
                                 <script>
                                     function final(){
@@ -247,14 +226,6 @@
         </div>
     </div>
     <!-- Search End -->
-
-    <!-- Js Plugins -->
-    <!-- <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script> -->
 </body>
 
 </html>

@@ -107,5 +107,29 @@
       $kq = mysqli_query($this->con, $qr);
       return $kq;
     }
+
+    public function insertOrder($check){
+      $qr = "insert into `order` values (default, '".$check."', 0, now())";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
+
+    public function selectMaxOrder(){
+      $qr = "select max(order_id) from `order`";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
+
+    public function InsertOrderFinal($order_id, $pd_id, $pd_quantity){
+      $qr = "insert into order_detail values('$order_id','$pd_id','$pd_quantity')";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
+
+    public function selectEmail($check){
+      $qr = "select U_email from info_user where u_id = '".$check."'";
+      $kq = mysqli_query($this->con, $qr);
+      return $kq;
+    }
   }
 ?>

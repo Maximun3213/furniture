@@ -42,5 +42,10 @@
       $qr = "DELETE FROM cart_item where cd_pd_id='$id' and cd_uid='".$user."'";
       return mysqli_query($this->con, $qr);
     }
+
+    public function UnsetCart($check){
+      $qr = "delete from cart_item where cd_uid='".$check."'";
+      return mysqli_query($this->con, $qr);
+    }
   }
 ?>
