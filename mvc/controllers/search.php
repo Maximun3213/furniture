@@ -1,8 +1,8 @@
 <?php
   class search extends controller{
 
-    public function show($search = null){
-
+    public function show(){
+      $search = addslashes($_POST['key']);
       $num = mysqli_num_rows($this->model('searchModel')->selectProductSearch($search));
       $sql = $this->model('searchModel')->selectProductSearch($search);
 
